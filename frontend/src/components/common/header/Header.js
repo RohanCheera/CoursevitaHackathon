@@ -19,16 +19,17 @@ function Header() {
     <div className="header">
       <div className="header-container px-5 py-2">
         <Link to="/" className="app-title">
-        Skillfolio
+          Skillfolio
         </Link>
         <div className="menu-bar">
-          <Link
-            to={isLoggedIn ? '/updates' : '#'}
-            className={`main-menu-item ${!isLoggedIn ? 'disabled-link' : ''}`}
-            onClick={(e) => !isLoggedIn && e.preventDefault()}
-          >
-            Update Profile
-          </Link>
+        <Link
+  to={isLoggedIn ? '/updates' : '#'}
+  className={`main-menu-item ${!isLoggedIn ? 'disabled-link' : ''}`} // Added correct backticks
+  onClick={(e) => !isLoggedIn && e.preventDefault()}
+>
+  Update Profile
+</Link>
+
           {isLoggedIn ? (
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">

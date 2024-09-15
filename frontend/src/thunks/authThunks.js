@@ -16,9 +16,9 @@ export const login = createAsyncThunk('auth/login', async ({ email, password }, 
     const data={"email":email,"password":password};
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', data);
-      const { token, name, email, pic } = response.data;
+      const { _id,token, name, email, pic } = response.data;
       localStorage.setItem('token', token);
-      return { token, name, email, pic };
+      return { _id,token, name, email, pic };
     } catch (error) {
       console.error('Login Error:', error); // Ensure correct logging
       const message = error.response?.data?.message || 'Login failed';

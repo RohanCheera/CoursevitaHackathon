@@ -6,6 +6,7 @@ const preloadedState = {
   auth: {
     token: localStorage.getItem('token') || null,
     user: null,
+    user_id:null,
     isLoggedIn: !!localStorage.getItem('token'),
     username: '',
     loading: false,

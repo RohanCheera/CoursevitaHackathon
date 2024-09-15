@@ -18,6 +18,8 @@ function Profile() {
           <Image src={user.pic} roundedCircle style={{ width: '150px' }} />
           <h2>{user.name}</h2>
           <p>{user.email}</p>
+          {/* <p>{user._id}</p> */}
+
         </Col>
       </Row>
       

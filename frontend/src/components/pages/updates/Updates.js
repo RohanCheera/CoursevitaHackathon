@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import './updates.css';
+import { useSelector } from 'react-redux';
 
 const Section = ({ label, items, handleAdd, handleChange, placeholders }) => (
   <>
@@ -25,15 +26,18 @@ const Section = ({ label, items, handleAdd, handleChange, placeholders }) => (
       Add {label}
     </Button>
   </>
+  
 );
 
 const Updates = () => {
+  const user = useSelector((state) => state.auth.user);
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
   const [profile, setProfile] = useState({
+    user_id:user._id,
     name: 'Brandon Johnson',
     role: 'Developer',
     about: '',
@@ -67,9 +71,11 @@ const Updates = () => {
 
     const formData = new FormData();
     formData.append('file', file);
-
+    console.log(file)
+    console.log(formData)
     try {
-      await axios.post('/api/upload-resume', formData);
+      await axios.post('http://localhost:5000/api/res', formData);
+      
       setSuccess('Resume updated successfully!');
     } catch {
       setError('Error uploading the resume. Please try again.');
@@ -82,6 +88,7 @@ const Updates = () => {
     const { name, value } = e.target;
     if (sectionIndex !== null) {
       const [section, index, key] = name.split('-');
+      console.log(index)
       setProfile((prevProfile) => {
         const updatedSection = [...prevProfile[section]];
         updatedSection[sectionIndex] = {
@@ -108,7 +115,7 @@ const Updates = () => {
     setProfileSuccess('');
 
     try {
-      await axios.post('/api/update-profile', profile);
+      await axios.post('/api/update', profile);
       setProfileSuccess('Profile updated successfully!');
     } catch {
       setProfileError('Error updating the profile. Please try again.');

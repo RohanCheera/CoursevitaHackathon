@@ -1,7 +1,7 @@
 import React from 'react';
-import './portfolio.css';
+import './portfolio3.css';
 
-function Portfolio() {
+function Portfolio3() {
   const {
     name,
     role,
@@ -160,4 +160,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default Portfolio3;

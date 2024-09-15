@@ -4,6 +4,7 @@ import { login, register } from '../thunks/authThunks';
 const initialState = {
   token: localStorage.getItem('token') || null,
   user: null,
+  user_id:'',
   isLoggedIn: !!localStorage.getItem('token'),
   username: '',
   loading: false,
@@ -31,7 +32,8 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload.token;
-        state.user = action.payload;
+        state.user_id = action.payload._id;
+        state.user= action.payload;
         state.isLoggedIn = true;
         state.username = action.payload.name;
       })
