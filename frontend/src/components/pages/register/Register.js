@@ -39,6 +39,7 @@ function Register() {
     }
 
     try {
+      console.log({ ...userData, image })
       await dispatch(register({ ...userData, image })).unwrap();
       navigate('/login');
     } catch (error) {

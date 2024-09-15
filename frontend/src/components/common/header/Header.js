@@ -19,15 +19,15 @@ function Header() {
     <div className="header">
       <div className="header-container px-5 py-2">
         <Link to="/" className="app-title">
-          Coupon Wallet
+        Skillfolio
         </Link>
         <div className="menu-bar">
           <Link
-            to={isLoggedIn ? '/coupons' : '#'}
+            to={isLoggedIn ? '/updates' : '#'}
             className={`main-menu-item ${!isLoggedIn ? 'disabled-link' : ''}`}
             onClick={(e) => !isLoggedIn && e.preventDefault()}
           >
-            Available Coupons
+            Update Profile
           </Link>
           {isLoggedIn ? (
             <Dropdown>

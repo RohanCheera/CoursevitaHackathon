@@ -5,10 +5,9 @@ import Profile from './components/pages/profile/Profile'
 import Login from './components/pages/login/Login'
 import Register from './components/pages/register/Register'
 import Layout from './components/common/Layout'
-import Coupons from './components/pages/coupons/Coupons';
-import ViewCoupon from './components/pages/coupons/ViewCoupon';
-import ExpiredCoupons from './components/pages/coupons/ExpiredCoupons';
-import ActiveCoupons from './components/pages/coupons/ActiveCoupons';
+import Updates from './components/pages/updates/Updates';
+import Portfolio from './components/pages/portfolio/Portfolio';
+
 
 
 function App() {
@@ -18,13 +17,14 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='/profile' element={<Profile/>}/>
-          <Route path='/coupons' element={<Coupons/>}/>
-          <Route path='/expired-coupons' element={<ExpiredCoupons/>}/>
-          <Route path='/active-coupons' element={<ActiveCoupons/>}/>
+          <Route path='/updates' element={<Updates/>}/>
+          
+
         </Route>
+        <Route path='/pf' element={<Portfolio/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/coupons/:id' element={<ViewCoupon/>}/>
+        
       </Routes>
     </div>
   );

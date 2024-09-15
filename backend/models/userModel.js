@@ -19,13 +19,7 @@ const userSchema = new mongoose.Schema(
     pic: {
       type: String,
       required: true,
-    },
-    coupons: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Coupon",
-      },
-    ],
+    }
   },
   {
     timestamps: true,

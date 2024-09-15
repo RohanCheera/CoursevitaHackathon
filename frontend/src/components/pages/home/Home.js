@@ -2,63 +2,62 @@ import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './home.css';
-import ImageSlider from '../homecomps/ImageSlider';
 
 function Home() {
   return (
     <div className="home">
-      <ImageSlider/>
       <Container>
         <Row className="hero-section">
           <Col md={12} className="text-center">
-            <h1>Welcome to Coupon Wallet</h1>
-            <p>Your one-stop solution for managing and trading coupons effortlessly.</p>
+            <h1>Welcome to Portfolio Builder</h1>
+            <p>Your all-in-one platform for transforming your CV into a professional portfolio.</p>
             <Button as={Link} to="/register" variant="primary" size="lg">Get Started</Button>
           </Col>
         </Row>
-        
+
+        {/* Testimonials Section */}
         <Row>
-    {[
-      { title: '10% Off on Electronics', text: 'Valid until: 31st Dec 2024', link: '/coupons/1' },
-      { title: '$5 Off on Groceries', text: 'Valid until: 15th Nov 2024', link: '/coupons/2' },
-      { title: 'Free Shipping on Orders Over $50', text: 'Valid until: 1st Jan 2025', link: '/coupons/3' },
-      { title: '10% Off on Electronics', text: 'Valid until: 31st Dec 2024', link: '/coupons/1' }
-    ].map((coupon, index) => (
-      <Col md={6} lg={3} key={index} className="mb-4">
-        <Card className="coupon-card modern-card">
-          <Card.Body>
-            <Card.Title>{coupon.title}</Card.Title> 
-            <Card.Text>{coupon.text}</Card.Text>
-            <Button variant="success" as={Link} to={coupon.link} className="custom-button">View Coupon</Button>
-          </Card.Body>
-        </Card>
-      </Col>
-    ))}
-  </Row>
-        
+          {[
+            { title: 'John Doe', text: 'This platform helped me create a professional portfolio effortlessly.', link: '/testimonials/john' },
+            { title: 'Jane Smith', text: 'I was able to customize my portfolio and land a new job!', link: '/testimonials/jane' },
+            { title: 'David Lee', text: 'The best platform to showcase your skills and work experience.', link: '/testimonials/david' },
+            { title: 'Sara Khan', text: 'Super easy to use, and the final portfolio looks great.', link: '/testimonials/sara' }
+          ].map((testimonial, index) => (
+            <Col md={6} lg={3} key={index} className="mb-4">
+              <Card className="testimonial-card modern-card">
+                <Card.Body>
+                  <Card.Title>{testimonial.title}</Card.Title> 
+                  <Card.Text>"{testimonial.text}"</Card.Text>
+                  <Button variant="success" as={Link} to={testimonial.link} className="custom-button">Read More</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+
+        {/* Benefits Section */}
         <Row className="benefits-section">
           <Col md={12}>
-            <h3 className='text-center py-3 '>Why to use coupon wellet ?</h3>
+            <h3 className='text-center py-3'>Why use Portfolio Builder?</h3>
             <Row>
               <Col md={4}>
                 <div className="benefit-item">
-                  <h4>Save Money</h4>
-                  <p>Get exclusive deals and discounts on your favorite products.</p>
+                  <h4>Save Time</h4>
+                  <p>Automatically populate your portfolio with key details from your CV.</p>
                 </div>
               </Col>
               <Col md={4}>
                 <div className="benefit-item">
-                  <h4>Trade Easily</h4>
-                  <p>Exchange unused coupons for virtual currency and never let a coupon go to waste.</p>
+                  <h4>Professional Design</h4>
+                  <p>Get a well-structured portfolio without needing design skills.</p>
                 </div>
               </Col>
               <Col md={4}>
                 <div className="benefit-item">
-                  <h4>Stay Organized</h4>
-                  <p>Keep track of all your coupons in one convenient place.</p>
+                  <h4>Customizable</h4>
+                  <p>Review and edit your information to make it truly yours before finalizing.</p>
                 </div>
               </Col>
-              
             </Row>
           </Col>
         </Row>
